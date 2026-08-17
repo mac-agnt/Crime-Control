@@ -61,7 +61,7 @@ export function Topbar({
           aria-label="Open profile settings"
           className="ml-1 rounded-full ring-offset-2 ring-offset-bg transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
         >
-          <Avatar initials="MA" size={34} />
+          <Avatar initials="CN" size={34} />
         </button>
       </div>
     </header>

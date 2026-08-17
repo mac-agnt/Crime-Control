@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Northbeam",
-  description: "Workspace dashboard template",
+  title: "Crime Control",
+  description: "Security & property operations",
 };
 
 const themeInitScript = `

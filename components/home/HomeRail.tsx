@@ -10,35 +10,35 @@ import { cn } from "@/lib/cn";
 
 const schedule = [
   {
-    start: "09:30",
-    end: "10:00",
-    title: "Growth team standup",
-    subtitle: "Daily sync",
-    tone: "accent" as const,
+    start: "19:00",
+    end: "07:00",
+    title: "Grangegorman Block C",
+    subtitle: "No show · 14 min",
+    tone: "warning" as const,
     current: true,
   },
   {
-    start: "11:00",
-    end: "12:00",
-    title: "Client sync — Northwind",
-    subtitle: "Project review",
+    start: "20:00",
+    end: "06:00",
+    title: "Naas Town Centre",
+    subtitle: "Sick cover needed",
     tone: "warning" as const,
     current: false,
   },
   {
-    start: "14:00",
-    end: "15:00",
-    title: "Product review",
-    subtitle: "Roadmap & priorities",
+    start: "18:00",
+    end: "08:00",
+    title: "Tallaght Square Unit 22",
+    subtitle: "On site · patrol logged",
     tone: "success" as const,
     current: false,
   },
 ];
 
 const projects = [
-  { name: "Northwind Redesign", progress: 68, tone: "accent" as const },
-  { name: "Dashboard Revamp", progress: 42, tone: "warning" as const },
-  { name: "Q3 Growth Campaign", progress: 75, tone: "success" as const },
+  { name: "Fitzgerald Property Group", progress: 27, tone: "warning" as const },
+  { name: "Blackwood Estates", progress: 18, tone: "accent" as const },
+  { name: "Clontarf Property Partners", progress: 5, tone: "success" as const },
 ];
 
 const toneBar: Record<"accent" | "warning" | "success", string> = {
@@ -64,9 +64,9 @@ export function HomeRail() {
       <motion.div variants={fadeUp} transition={{ duration: 0.3, ease }}>
         <Card className="p-0">
           <div className="flex items-center justify-between px-5 pt-4 pb-1">
-            <h2 className="text-[14.5px] font-semibold text-ink">Today</h2>
+            <h2 className="text-[14.5px] font-semibold text-ink">Tonight</h2>
             <button className="flex items-center gap-1 text-[12px] font-medium text-ink-faint hover:text-ink">
-              Wed 15 Jul
+              Mon 17 Aug
               <CaretRight size={11} weight="bold" />
             </button>
           </div>
@@ -97,7 +97,7 @@ export function HomeRail() {
           </div>
 
           <button className="flex w-full items-center justify-between px-5 py-3 text-[12px] font-medium text-ink-faint hover:text-ink">
-            View full calendar
+            Open live sites
             <CaretRight size={11} weight="bold" />
           </button>
         </Card>
@@ -106,7 +106,7 @@ export function HomeRail() {
       <motion.div variants={fadeUp} transition={{ duration: 0.3, ease }}>
         <Card className="p-0">
           <div className="flex items-center justify-between px-5 pt-4 pb-2">
-            <h2 className="text-[14.5px] font-semibold text-ink">Projects</h2>
+            <h2 className="text-[14.5px] font-semibold text-ink">Top clients</h2>
             <button className="text-[12px] font-medium text-accent-strong hover:text-accent">
               View all
             </button>

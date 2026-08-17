@@ -7,6 +7,7 @@ import { MobileNav } from "./MobileNav";
 import { CommandPalette } from "./CommandPalette";
 import { Dock } from "./dock/Dock";
 import { PageTransition } from "./PageTransition";
+import { DemoStoreProvider } from "@/lib/demoStore";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -25,6 +26,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
+    <DemoStoreProvider>
     <div className="flex h-dvh gap-0 overflow-hidden bg-bg p-0 sm:gap-3 sm:p-3">
       <Sidebar collapsed={collapsed} onToggle={() => setCollapsed((v) => !v)} />
       <MobileNav open={mobileNavOpen} onClose={() => setMobileNavOpen(false)} />
@@ -44,5 +46,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
       <Dock />
     </div>
+    </DemoStoreProvider>
   );
 }

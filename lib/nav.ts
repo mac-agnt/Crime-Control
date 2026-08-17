@@ -1,38 +1,39 @@
 import type { Icon } from "@phosphor-icons/react";
 import {
   Sparkle,
-  House,
-  SquaresFour,
-  Kanban,
+  MapPin,
+  Lifebuoy,
   CalendarBlank,
-  ChartLineUp,
-  FileText,
-  Users,
-  AddressBook,
-  ChatCircleDots,
-  Lightning,
+  Clock,
+  Package,
+  Buildings,
+  Wrench,
+  Globe,
   Gear,
 } from "@phosphor-icons/react/dist/ssr";
+import { sites, openShifts } from "@/lib/data";
 
 export type NavItem = {
   label: string;
   href: string;
   icon: Icon;
   slug: string;
+  badge?: number;
 };
+
+const alertCount = sites.filter((s) => s.status === "No show" || s.status === "Late").length;
+const coverCount = openShifts.length;
 
 export const primaryNav: NavItem[] = [
   { label: "Home", href: "/", icon: Sparkle, slug: "home" },
-  { label: "Dashboard", href: "/dashboard", icon: House, slug: "dashboard" },
-  { label: "Feed", href: "/test/feed", icon: SquaresFour, slug: "feed" },
-  { label: "Projects", href: "/test/projects", icon: Kanban, slug: "projects" },
-  { label: "Schedule", href: "/test/schedule", icon: CalendarBlank, slug: "schedule" },
-  { label: "Analytics", href: "/test/analytics", icon: ChartLineUp, slug: "analytics" },
-  { label: "Reports", href: "/test/reports", icon: FileText, slug: "reports" },
-  { label: "Team", href: "/test/team", icon: Users, slug: "team" },
-  { label: "Directory", href: "/test/directory", icon: AddressBook, slug: "directory" },
-  { label: "Messages", href: "/test/messages", icon: ChatCircleDots, slug: "messages" },
-  { label: "Automations", href: "/test/automations", icon: Lightning, slug: "automations" },
+  { label: "Live Sites", href: "/sites", icon: MapPin, slug: "sites", badge: alertCount },
+  { label: "Cover Desk", href: "/cover", icon: Lifebuoy, slug: "cover", badge: coverCount },
+  { label: "Roster", href: "/roster", icon: CalendarBlank, slug: "roster" },
+  { label: "Timesheets", href: "/timesheets", icon: Clock, slug: "timesheets" },
+  { label: "Equipment", href: "/equipment", icon: Package, slug: "equipment" },
+  { label: "Clients", href: "/clients", icon: Buildings, slug: "clients" },
+  { label: "Property Jobs", href: "/jobs", icon: Wrench, slug: "jobs" },
+  { label: "Client Portal", href: "/portal", icon: Globe, slug: "portal" },
 ];
 
 export const secondaryNav: NavItem[] = [

@@ -42,10 +42,10 @@ export function Sidebar({
               className="overflow-hidden whitespace-nowrap"
             >
               <p className="text-[15px] font-semibold leading-tight text-ink">
-                Northbeam
+                Crime Control
               </p>
               <p className="text-[11px] leading-tight text-ink-faint">
-                Workspace
+                Operations
               </p>
             </motion.div>
           )}
@@ -92,6 +92,18 @@ export function Sidebar({
                   </motion.span>
                 )}
               </AnimatePresence>
+              {!collapsed && item.badge ? (
+                <span
+                  className={clsx(
+                    "relative z-10 ml-auto inline-flex min-w-5 items-center justify-center rounded-full px-1.5 py-0.5 text-[10.5px] font-semibold",
+                    item.slug === "sites"
+                      ? "bg-danger/15 text-danger"
+                      : "bg-accent-soft text-accent-strong"
+                  )}
+                >
+                  {item.badge}
+                </span>
+              ) : null}
             </Link>
           );
         })}
@@ -129,14 +141,14 @@ export function Sidebar({
           onClick={() => router.push("/settings")}
           className="mt-1 flex h-12 items-center gap-2.5 rounded-[10px] px-2.5 text-left transition-colors duration-150 hover:bg-border-soft"
         >
-          <Avatar initials="MA" size={32} />
+          <Avatar initials="CN" size={32} />
           {!collapsed && (
             <div className="min-w-0 overflow-hidden">
               <p className="truncate text-[13px] font-semibold leading-tight text-ink">
-                Mac O&apos;Brien
+                Christy Nolan
               </p>
               <p className="truncate text-[11px] leading-tight text-ink-faint">
-                View profile
+                Owner
               </p>
             </div>
           )}

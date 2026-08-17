@@ -44,7 +44,7 @@ export function MobileNav({
               <div className="flex size-9 items-center justify-center rounded-[10px] bg-accent text-accent-ink">
                 <Stack weight="fill" size={18} />
               </div>
-              <p className="text-[15px] font-semibold text-ink">Northbeam</p>
+              <p className="text-[15px] font-semibold text-ink">Crime Control</p>
               <button
                 onClick={onClose}
                 className="ml-auto flex size-9 items-center justify-center rounded-[10px] text-ink-faint hover:bg-border-soft"
@@ -71,6 +71,18 @@ export function MobileNav({
                   >
                     <Icon size={19} weight={active ? "fill" : "regular"} />
                     {item.label}
+                    {item.badge ? (
+                      <span
+                        className={clsx(
+                          "ml-auto inline-flex min-w-5 items-center justify-center rounded-full px-1.5 py-0.5 text-[10.5px] font-semibold",
+                          item.slug === "sites"
+                            ? "bg-danger/15 text-danger"
+                            : "bg-accent-soft text-accent-strong"
+                        )}
+                      >
+                        {item.badge}
+                      </span>
+                    ) : null}
                   </Link>
                 );
               })}
