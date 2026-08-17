@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border: var(--border);
+  --color-border-soft: var(--border-soft);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --color-cream: var(--cream);
+  --color-cream-ink: var(--cream-ink);
+  --color-glow: var(--glow);
+}
+
+:root {
+  --bg: oklch(98.2% 0.002 260);
+  --surface: oklch(100% 0 0);
+  --surface-raised: oklch(100% 0 0);
+  --border: oklch(91% 0.005 260);
+  --border-soft: oklch(94.5% 0.003 260);
+
+  --ink: oklch(21% 0.012 260);
+  --ink-muted: oklch(46% 0.012 260);
+  --ink-faint: oklch(62% 0.01 260);
+
+  --accent: oklch(57% 0.19 258);
+  --accent-strong: oklch(48% 0.19 258);
+  --accent-soft: oklch(94% 0.03 258);
+  --accent-ink: oklch(99% 0.005 258);
+
+  --success: oklch(63% 0.15 150);
+  --warning: oklch(73% 0.15 75);
+  --danger: oklch(58% 0.21 25);
+
+  --cream: oklch(97% 0.014 85);
+  --cream-ink: oklch(20% 0.01 60);
+  --glow: oklch(85% 0.07 75);
+
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: oklch(12.5% 0.002 60);
+  --surface: oklch(16.5% 0.003 60);
+  --surface-raised: oklch(20% 0.003 60);
+  --border: oklch(26% 0.003 60);
+  --border-soft: oklch(21% 0.003 60);
+
+  --ink: oklch(96% 0 0);
+  --ink-muted: oklch(72% 0 0);
+  --ink-faint: oklch(52% 0 0);
+
+  --accent: oklch(78% 0.06 85);
+  --accent-strong: oklch(86% 0.055 85);
+  --accent-soft: oklch(29% 0.045 85);
+  --accent-ink: oklch(16% 0.02 70);
+
+  --success: oklch(72% 0.16 150);
+  --warning: oklch(80% 0.15 80);
+  --danger: oklch(68% 0.19 25);
+
+  --cream: oklch(93% 0.022 85);
+  --cream-ink: oklch(18% 0.01 60);
+  --glow: oklch(78% 0.09 75);
+
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: oklch(12.5% 0.002 60);
+    --surface: oklch(16.5% 0.003 60);
+    --surface-raised: oklch(20% 0.003 60);
+    --border: oklch(26% 0.003 60);
+    --border-soft: oklch(21% 0.003 60);
+
+    --ink: oklch(96% 0 0);
+    --ink-muted: oklch(72% 0 0);
+    --ink-faint: oklch(52% 0 0);
+
+    --accent: oklch(78% 0.06 85);
+    --accent-strong: oklch(86% 0.055 85);
+    --accent-soft: oklch(29% 0.045 85);
+    --accent-ink: oklch(16% 0.02 70);
+
+    --success: oklch(72% 0.16 150);
+    --warning: oklch(80% 0.15 80);
+    --danger: oklch(68% 0.19 25);
+
+    --cream: oklch(93% 0.022 85);
+    --cream-ink: oklch(18% 0.01 60);
+    --glow: oklch(78% 0.09 75);
+
+    color-scheme: dark;
+  }
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-border-soft) 25%,
+    var(--color-border) 37%,
+    var(--color-border-soft) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.8s ease infinite;
+}
